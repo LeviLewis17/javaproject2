@@ -1,0 +1,55 @@
+[Twitter Project GUI Testing Plan]
+Functionality:
+
+~Displaying Tweet Collection~
+-Using a TextArea with a ScrollPane to display around 200 of the tweets from the collection
+-User can edit TextAreas, therefore the TextArea in this situation needs to not be editable
+-Functionality required to display tweets of different polarities
+	-Add radio buttons corresponding to 0, 2, 4, and All so the user can choose to view
+	tweets of either of the three polarities or view all of the tweets again.
+	-All button needs to be set as selected by default
+	-Buttons need to be added to a button group
+
+~Getting Tweets Based off of a Username~
+-TextField will be used to input a username
+-Button will be used to pull tweets from the tweet collection based on the username
+-Input validation needs to be implemented
+	-If the username cannot be found, display some sort of error message. Likely a dialog box
+	-If a username is not entered, but the button is pressed, an error dialog appears
+
+~Getting an ID from the drop-down List and displaying a tweet~
+-A drop-down list will be used to select an ID from the set of IDs corresponding to the username
+that the user enters
+-The tweet corresponding to the ID will be displayed in a text area
+
+~Dark Mode~
+-Using a check-box to designate which color scheme to use
+-When selected, the background will turn black, and when deselected, the background reverts 
+back to white
+	-Issue arises with the color of text in labels
+	-When selected, check-box also turns all label text white, and when deselected,
+	the text reverts back to black
+
+~Adding Tweet~
+-Button will be used to open up a dialog box for the user to enter key information about the tweet
+-Obviously the user will not know the polarity, so the TweetCollection class's prediction method
+will be used for added tweets
+	-The predicted polarity will be displayed in a text field underneath the add tweet button
+-Input validation must be implemented. Error messages will be displayed in dialog boxes
+	-If the ID input by the user is not a Long value or is a negative number, throw an error
+	-If the ID field is left blank, throw an error
+	-If the ID already exists in the tweet collection, throw an error
+	-If username field is left blank, throw an error
+	-If tweet text field is left blank, throw an error
+-Using this input information and the predicted polarity, new Tweet object will be added to the
+collection
+-File will be rewritten afterwards
+
+~Removing Tweet~
+-Button will be used to open up a dialog box for the user to enter the ID of the tweet to be removed
+-Input validation must be implemented. Error messages will be displayed in dialog boxes
+	-If the input value is not a Long or is negative, throw an error
+	-If the input value is not present in the collection, throw an error
+	-If the input field is left blank, throw an error
+-Tweet will be removed from the collection
+-File will be rewritten afterwards
